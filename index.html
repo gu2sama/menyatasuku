@@ -282,6 +282,91 @@
       50% { opacity: 1; transform: scaleY(1); }
     }
 
+    /* ─── Visit bar (decision helper) ─── */
+    .visit-bar {
+      background: var(--white-warm);
+      border-top: 1px solid var(--cream-dark);
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 18px 0;
+    }
+    .visit-bar__grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+    .visit-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f4efe4;
+      color: var(--brown-deep);
+      border: 1px solid var(--sand);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      justify-content: center;
+    }
+    .visit-pill__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--amber);
+    }
+    .visit-pill--open .visit-pill__dot { background: #2d9f56; }
+    .visit-pill--closed .visit-pill__dot { background: #b3463f; }
+
+    /* ─── Menu tags ─── */
+    .menu-item__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .menu-tag {
+      display: inline-block;
+      border: 1px solid var(--sand);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      color: var(--brown-mid);
+      background: #f8f2e6;
+    }
+    .menu-tag--dark {
+      border-color: rgba(232,169,106,0.55);
+      color: var(--amber-light);
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* ─── Mobile sticky CTA ─── */
+    .sticky-cta {
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: max(12px, env(safe-area-inset-bottom));
+      z-index: 120;
+      display: none;
+      gap: 8px;
+    }
+    .sticky-cta .btn {
+      flex: 1;
+      justify-content: center;
+      padding: 12px 14px;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(44,26,14,0.24);
+      backdrop-filter: blur(2px);
+    }
+    .sticky-cta .btn--ghost {
+      background: rgba(254,252,247,0.95);
+      color: var(--brown-deep);
+      border-color: var(--sand);
+    }
+
     /* ─── Philosophy ─── */
     .philosophy {
       background: var(--brown-deep);
@@ -746,6 +831,18 @@
     @media (max-width: 768px) {
       .section { padding: 72px 0; }
       .nav__links { display: none; }
+      .visit-bar__grid {
+        grid-template-columns: 1fr;
+      }
+      .visit-pill {
+        justify-content: flex-start;
+      }
+      .sticky-cta {
+        display: flex;
+      }
+      .access {
+        padding-bottom: 120px;
+      }
 
       .hero__inner {
         grid-template-columns: 1fr;
@@ -820,6 +917,30 @@
     <div class="hero__scroll" aria-hidden="true">
       <span>SCROLL</span>
       <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── Visit Decision Bar ─── -->
+  <section class="visit-bar" aria-label="来店の目安情報">
+    <div class="container">
+      <div class="visit-bar__grid reveal">
+        <div id="openStatus" class="visit-pill visit-pill--open">
+          <span class="visit-pill__dot" aria-hidden="true"></span>
+          <strong>営業案内を確認中...</strong>
+        </div>
+        <div class="visit-pill">
+          <span class="visit-pill__dot" aria-hidden="true"></span>
+          駐車場 約8台
+        </div>
+        <div class="visit-pill">
+          <span class="visit-pill__dot" aria-hidden="true"></span>
+          カウンター11席
+        </div>
+        <div class="visit-pill">
+          <span class="visit-pill__dot" aria-hidden="true"></span>
+          スープ売切れ終了
+        </div>
+      </div>
     </div>
   </section>
 
@@ -940,6 +1061,10 @@
           <div class="menu-item__body">
             <div>
               <p class="menu-item__name">中華そば</p>
+              <div class="menu-item__tags">
+                <span class="menu-tag">初来店におすすめ</span>
+                <span class="menu-tag">あっさり</span>
+              </div>
               <p class="menu-item__desc">鶏の旨みが染み出た澄んだスープ。<br>手打ち麺との相性は抜群。</p>
             </div>
             <span class="menu-item__price">¥750</span>
@@ -956,6 +1081,10 @@
           <div class="menu-item__body">
             <div>
               <p class="menu-item__name">鶏白湯ラーメン</p>
+              <div class="menu-item__tags">
+                <span class="menu-tag">こってり</span>
+                <span class="menu-tag">満足感しっかり</span>
+              </div>
               <p class="menu-item__desc">とろりと白濁した濃厚スープ。<br>麺に絡みつく、コクと甘み。</p>
             </div>
             <span class="menu-item__price">¥880</span>
@@ -972,6 +1101,10 @@
           <div class="menu-item__body" style="background: var(--brown-deep);">
             <div>
               <p class="menu-item__name" style="color: var(--cream);">鶏白湯（黒）</p>
+              <div class="menu-item__tags">
+                <span class="menu-tag menu-tag--dark">香ばしさ強め</span>
+                <span class="menu-tag menu-tag--dark">濃厚派向け</span>
+              </div>
               <p class="menu-item__desc" style="color: rgba(250,243,224,0.6);">香ばしい黒の風味をまとった<br>濃厚な鶏白湯の深み。</p>
             </div>
             <span class="menu-item__price" style="color: var(--amber-light);">¥880</span>
@@ -1004,6 +1137,11 @@
       <p class="menu-note reveal">スープがなくなり次第、終了となります</p>
     </div>
   </section>
+
+  <div class="sticky-cta" aria-label="モバイル固定アクション">
+    <a href="https://maps.app.goo.gl/MyEqfNDNsrEx5w9D8?g_st=ic" target="_blank" rel="noopener" class="btn btn--amber">今すぐルート案内</a>
+    <a href="tel:0508880-4596" class="btn btn--ghost">電話する</a>
+  </div>
 
   <!-- ─── Shop Info ─── -->
   <section class="shopinfo section" id="shopinfo" aria-label="店舗情報">
@@ -1161,6 +1299,40 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Open status helper (JST)
+    const openStatusEl = document.getElementById('openStatus');
+    if (openStatusEl) {
+      const now = new Date();
+      const nowInJst = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' }));
+      const day = nowInJst.getDay(); // 0:Sun ... 3:Wed
+      const hour = nowInJst.getHours();
+      const min = nowInJst.getMinutes();
+      const minutes = hour * 60 + min;
+
+      const isWednesday = day === 3;
+      const inLunch = minutes >= 11 * 60 && minutes < 15 * 60;
+      const inDinner = minutes >= 18 * 60 && minutes < 20 * 60;
+      const isOpen = !isWednesday && (inLunch || inDinner);
+
+      openStatusEl.classList.remove('visit-pill--open', 'visit-pill--closed');
+      if (isOpen) {
+        openStatusEl.classList.add('visit-pill--open');
+        openStatusEl.innerHTML = '<span class="visit-pill__dot" aria-hidden="true"></span><strong>ただいま営業中</strong> 11:00-15:00 / 18:00-20:00';
+      } else if (isWednesday) {
+        openStatusEl.classList.add('visit-pill--closed');
+        openStatusEl.innerHTML = '<span class="visit-pill__dot" aria-hidden="true"></span><strong>本日は定休日（水）</strong> 明日11:00から営業';
+      } else if (minutes < 11 * 60) {
+        openStatusEl.classList.add('visit-pill--closed');
+        openStatusEl.innerHTML = '<span class="visit-pill__dot" aria-hidden="true"></span><strong>開店前</strong> 11:00から営業';
+      } else if (minutes < 18 * 60) {
+        openStatusEl.classList.add('visit-pill--closed');
+        openStatusEl.innerHTML = '<span class="visit-pill__dot" aria-hidden="true"></span><strong>中休み</strong> 18:00から夜営業';
+      } else {
+        openStatusEl.classList.add('visit-pill--closed');
+        openStatusEl.innerHTML = '<span class="visit-pill__dot" aria-hidden="true"></span><strong>本日の営業終了</strong> 明日11:00から営業';
+      }
+    }
   </script>
 
 </body>
