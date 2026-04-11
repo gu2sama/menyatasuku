@@ -830,15 +830,21 @@
     const loaderNum  = document.getElementById('loaderNum');
     const loaderLogo = document.getElementById('loaderLogo');
 
-    gsap.to(loaderLogo, { opacity: 1, y: 0, duration: 0.8, delay: 0.15, ease: 'power2.out',
-      from: { opacity: 0, y: 16 } });
-
+    let logoShown = false;
     const counter = { val: 0 };
     gsap.to(counter, {
       val: 100, duration: 2.2, ease: 'power1.inOut',
       onUpdate() {
         const v = Math.round(counter.val);
         loaderNum.innerHTML = v + '<span>%</span>';
+        
+        if (v >= 30 && !logoShown) {
+          logoShown = true;
+          gsap.fromTo(loaderLogo, 
+            { opacity: 0, y: 16 }, 
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+          );
+        }
       },
       onComplete() {
         gsap.to(loaderEl, {
