@@ -149,12 +149,7 @@
     }
     .loader__counter span { color: var(--amber-light); }
 
-    /* Steam */
-    .loader__steam {
-      position: absolute; bottom: 0; left: 50%;
-      transform: translateX(-50%);
-      pointer-events: none; opacity: 0.15;
-    }
+
 
     /* ─── Navigation ─── */
     .nav {
@@ -515,23 +510,6 @@
 
   <!-- ─── Loader ─── -->
   <div id="loader" aria-hidden="true">
-    <svg class="loader__steam" width="400" height="300" viewBox="0 0 400 300" fill="none">
-      <path d="M100,300 C110,250 90,220 105,170 C120,120 100,90 115,40" stroke="rgba(232,169,106,0.45)" stroke-width="1.5" fill="none">
-        <animate attributeName="d" dur="4s" repeatCount="indefinite"
-          values="M100,300 C110,250 90,220 105,170 C120,120 100,90 115,40;M100,300 C90,250 110,220 95,170 C80,120 100,90 85,40;M100,300 C110,250 90,220 105,170 C120,120 100,90 115,40"/>
-        <animate attributeName="opacity" dur="4s" repeatCount="indefinite" values="0.45;0.1;0.45"/>
-      </path>
-      <path d="M200,300 C215,240 185,210 200,155 C215,100 195,65 210,10" stroke="rgba(232,169,106,0.35)" stroke-width="1.5" fill="none">
-        <animate attributeName="d" dur="5s" repeatCount="indefinite"
-          values="M200,300 C215,240 185,210 200,155 C215,100 195,65 210,10;M200,300 C185,240 215,210 200,155 C185,100 205,65 190,10;M200,300 C215,240 185,210 200,155 C215,100 195,65 210,10"/>
-        <animate attributeName="opacity" dur="5s" repeatCount="indefinite" values="0.35;0.08;0.35"/>
-      </path>
-      <path d="M300,300 C290,248 310,218 295,165 C280,112 300,82 285,28" stroke="rgba(232,169,106,0.4)" stroke-width="1.5" fill="none">
-        <animate attributeName="d" dur="3.5s" repeatCount="indefinite"
-          values="M300,300 C290,248 310,218 295,165 C280,112 300,82 285,28;M300,300 C310,248 290,218 305,165 C320,112 300,82 315,28;M300,300 C290,248 310,218 295,165 C280,112 300,82 285,28"/>
-        <animate attributeName="opacity" dur="3.5s" repeatCount="indefinite" values="0.4;0.1;0.4"/>
-      </path>
-    </svg>
     <img class="loader__logo" id="loaderLogo" src="vectorized_019d4e4c-63ad-7367-9ec6-3a475ccb0119.svg" alt="麺屋TASUKU" width="90">
     <div class="loader__counter" id="loaderNum">0<span>%</span></div>
   </div>
