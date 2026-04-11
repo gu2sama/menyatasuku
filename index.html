@@ -3,11 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>麺屋TASUKU — 手打ちの一杯、倉吉に。</title>
-  <meta name="description" content="鳥取県倉吉市の手打ちラーメン専門店。国産小麦をブレンドした自家製手打ち麺と、丁寧に炊いた鶏スープ。11席、スープがなくなり次第終了。">
-  <meta property="og:title" content="麺屋TASUKU — 手打ちの一杯、倉吉に。">
-  <meta property="og:description" content="国産小麦の自家製手打ち麺。鳥取県倉吉市国府604。">
+  <title>麺屋TASUKU | 鳥取県倉吉市の自家製手打ちラーメン専門店</title>
+  <meta name="description" content="鳥取県倉吉市のラーメン専門店「麺屋TASUKU」。国産小麦を独自ブレンドした毎日手打ちの自家製麺と、丁寧に炊いた鶏スープを提供します。売り切れ次第終了。">
+  <link rel="canonical" href="https://gu2sama.github.io/menyatasuku/">
+  
+  <meta property="og:title" content="麺屋TASUKU | 鳥取県倉吉市の自家製手打ちラーメン専門店">
+  <meta property="og:description" content="鳥取県倉吉市のラーメン専門店。手打ちの自家製麺と、鶏の旨み溢れる極上スープ。">
   <meta property="og:type" content="restaurant">
+  <meta property="og:url" content="https://gu2sama.github.io/menyatasuku/">
+  <meta property="og:image" content="https://gu2sama.github.io/menyatasuku/608546535990362131.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Schema.org 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "麺屋TASUKU",
+    "image": "https://gu2sama.github.io/menyatasuku/608546535990362131.jpg",
+    "description": "鳥取県倉吉市のラーメン専門店。手打ちの自家製麺と丁寧に炊いた鶏スープ。",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "国府604",
+      "addressLocality": "倉吉市",
+      "addressRegion": "鳥取県",
+      "postalCode": "682-0011",
+      "addressCountry": "JP"
+    },
+    "telephone": "+81-50-8880-4596",
+    "servesCuisine": ["Ramen", "Japanese Noodles"],
+    "priceRange": "¥",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:00",
+        "closes": "15:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "18:00",
+        "closes": "20:00"
+      }
+    ],
+    "url": "https://gu2sama.github.io/menyatasuku/"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -271,6 +313,10 @@
       font-size: clamp(1.8rem, 3.2vw, 2.6rem);
       font-weight: 400; letter-spacing: 0.1em; line-height: 1.4;
     }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
 
     /* ─── Philosophy (dark strip) ─── */
     .philosophy {
@@ -530,6 +576,7 @@
       </div>
       <span class="hero__en" id="heroEn">MENYA TASUKU / KURAYOSHI, TOTTORI</span>
       <h1 class="hero__title" id="heroTitle">
+        <span class="sr-only">鳥取県倉吉市のラーメン 麺屋TASUKU</span>
         手打ちの一杯、<br><strong>倉吉</strong>に。
       </h1>
       <p class="hero__catch" id="heroCatch">
