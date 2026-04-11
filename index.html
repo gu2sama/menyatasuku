@@ -148,16 +148,7 @@
       line-height: 1;
     }
     .loader__counter span { color: var(--amber-light); }
-    .loader__line {
-      width: 180px; height: 1px;
-      background: rgba(250,243,224,0.12);
-      position: relative; overflow: hidden;
-    }
-    .loader__fill {
-      position: absolute; left: 0; top: 0;
-      width: 0%; height: 100%;
-      background: var(--amber);
-    }
+
     /* Steam */
     .loader__steam {
       position: absolute; bottom: 0; left: 50%;
@@ -543,7 +534,6 @@
     </svg>
     <img class="loader__logo" id="loaderLogo" src="vectorized_019d4e4c-63ad-7367-9ec6-3a475ccb0119.svg" alt="麺屋TASUKU" width="90">
     <div class="loader__counter" id="loaderNum">0<span>%</span></div>
-    <div class="loader__line"><div class="loader__fill" id="loaderFill"></div></div>
   </div>
 
   <!-- ─── Custom Cursor ─── -->
@@ -860,7 +850,6 @@
     /* ══ LOADER ══ */
     const loaderEl   = document.getElementById('loader');
     const loaderNum  = document.getElementById('loaderNum');
-    const loaderFill = document.getElementById('loaderFill');
     const loaderLogo = document.getElementById('loaderLogo');
 
     gsap.to(loaderLogo, { opacity: 1, y: 0, duration: 0.8, delay: 0.15, ease: 'power2.out',
@@ -872,7 +861,6 @@
       onUpdate() {
         const v = Math.round(counter.val);
         loaderNum.innerHTML = v + '<span>%</span>';
-        loaderFill.style.width = v + '%';
       },
       onComplete() {
         gsap.to(loaderEl, {
